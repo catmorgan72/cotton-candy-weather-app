@@ -20,6 +20,7 @@ li {
   color: #7c73e6;
   margin: 0;
   padding: 0;
+  text-transform: capitalize;
 }
 .weather-app-wrapper {
   max-width: 600px;
