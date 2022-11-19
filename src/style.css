@@ -48,8 +48,16 @@ li:first-letter {
   font-weight: 400;
 }
 .weather-temperature .units {
-  color: #6643b5;
   position: relative;
   font-size: 16px;
   top: -34px;
+}
+.weather-temperature .celsius {
+  text-decoration: none;
+}
+.weather-temperature .fahrenheit {
+  text-decoration: none;
+}
+.weather-temperature .active {
+  color: #6643b5;
 }
