@@ -24,6 +24,13 @@ li {
 li:first-letter {
   text-transform: capitalize;
 }
+small .open-source {
+  color: #7c73e6;
+  text-decoration: none;
+}
+small .name {
+  color: #6643b5;
+}
 .weather-app-wrapper {
   max-width: 600px;
   margin: 30px auto;
@@ -32,6 +39,14 @@ li:first-letter {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 10px;
+  background: radial-gradient(
+    328px at 2.9% 15%,
+    rgb(191, 224, 251) 0%,
+    rgb(232, 233, 251) 25.8%,
+    rgb(252, 239, 250) 50.8%,
+    rgb(234, 251, 251) 77.6%,
+    rgb(240, 251, 244) 100.7%
+  );
 }
 .overview {
   margin-bottom: 20px;
@@ -60,4 +75,9 @@ li:first-letter {
 }
 .weather-temperature .active {
   color: #6643b5;
+}
+
+.search-form .search-btn {
+  color: white;
+  background-color: #6643b5;
 }
