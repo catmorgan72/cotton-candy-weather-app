@@ -79,5 +79,22 @@ small .name {
 
 .search-form .search-btn {
   color: white;
-  background-color: #6643b5;
+  background-color: #9852f9;
+  border: solid transparent;
+}
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: #9852f9;
+}
+.weather-forecast-date {
+  font-size: 16px;
+  opacity: 0.8;
+}
+.weather-forecast-temperature {
+  font-size: 13px;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.8;
 }
