@@ -73,7 +73,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "e63e6060bf09d0o6a94a3647te5cbfb5";
-  let apiURL = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+  let apiURL = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=imperial`;
 
   axios.get(apiURL).then(displayForecast);
 }
@@ -86,14 +86,16 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+  let feelsLikeElement = document.querySelector("#feelsLike");
 
-  celsiusTemperature = response.data.temperature.current;
+  fahrenheitTemperature = response.data.temperature.current;
 
   cityElement.innerHTML = response.data.city;
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = response.data.temperature.humidity;
   windElement.innerHTML = response.data.wind.speed;
+  feelsLikeElement.innerHTML = Math.round(response.data.temperature.feels_like);
   dateElement.innerHTML = formatDate(response.data.time * 1000);
   iconElement.setAttribute(
     "src",
@@ -106,7 +108,7 @@ function displayTemperature(response) {
 
 function search(city) {
   let apiKey = "e63e6060bf09d0o6a94a3647te5cbfb5";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=imperial`;
 
   axios.get(apiUrl).then(displayTemperature);
 }
@@ -117,32 +119,7 @@ function handlSubmit(event) {
   search(cityInputElement.value);
 }
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
 let form = document.querySelector("#searchForm");
 form.addEventListener("submit", handlSubmit);
-
-let fahrenheitLinkElement = document.querySelector("#fahrenheitLink");
-fahrenheitLinkElement.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLinkElement = document.querySelector("#celsiusLink");
-celsiusLinkElement.addEventListener("click", displayCelsiusTemperature);
 
 search("Pensacola");
