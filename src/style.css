@@ -89,12 +89,11 @@ small .name {
 }
 .weather-forecast-date {
   font-size: 16px;
-  opacity: 0.8;
 }
 .weather-forecast-temperature {
   font-size: 13px;
 }
 
-.weather-forecast-temperature-min {
-  opacity: 0.8;
+.weather-forecast-temperature-max {
+  font-weight: bold;
 }
